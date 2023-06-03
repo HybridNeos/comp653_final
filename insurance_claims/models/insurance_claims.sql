@@ -1,4 +1,5 @@
 SELECT
+    ROW_NUMBER() OVER (ORDER BY NULL) as row_number,
     months_as_customer,
     -- age discriminatory
     -- policy_number not useful

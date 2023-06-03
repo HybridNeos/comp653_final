@@ -1,5 +1,6 @@
 WITH first_transform as (
     SELECT
+        DISTINCT
         claims.*,
         omap.rank as rank_incident_severity
     FROM
@@ -9,6 +10,7 @@ WITH first_transform as (
             AND omap.column = "incident_severity"
 )
 SELECT
+    DISTINCT
     claims.*,
     omap.rank as rank_insured_education_level
 FROM
