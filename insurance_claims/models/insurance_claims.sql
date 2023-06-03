@@ -1,4 +1,5 @@
 SELECT
+    DISTINCT
     ROW_NUMBER() OVER (ORDER BY NULL) as row_number,
     months_as_customer,
     -- age discriminatory
@@ -34,9 +35,9 @@ SELECT
     injury_claim,
     property_claim,
     vehicle_claim,
-    --auto_make decide if want to join to https://www.kaggle.com/datasets/sidharth178/car-prices-dataset
-    --auto_model,
-    --auto_year
+    auto_make,
+    auto_model,
+    auto_year,
     fraud_reported
 FROM
     {{ ref('raw_insurance_claims') }}
