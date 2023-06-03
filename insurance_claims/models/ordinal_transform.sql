@@ -1,8 +1,10 @@
 WITH first_transform as (
     SELECT
         DISTINCT
-        claims.*,
-        omap.rank as rank_incident_severity
+        claims.row_number,
+        claims.incident_severity,
+        omap.rank as rank_incident_severity,
+        claims.insured_education_level -- need for next query
     FROM
         {{ ref('insurance_claims') }} as claims
         INNER JOIN {{ ref('ordinal_mappings') }} as omap
@@ -11,7 +13,10 @@ WITH first_transform as (
 )
 SELECT
     DISTINCT
-    claims.*,
+    claims.row_number,
+    claims.incident_severity,
+    claims.rank_incident_severity,
+    claims.insured_education_level,
     omap.rank as rank_insured_education_level
 FROM
     first_transform claims
