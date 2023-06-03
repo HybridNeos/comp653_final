@@ -38,8 +38,7 @@ make as (
     FROM
         {{ ref('car_prices_dataset') }}
     GROUP BY
-        Manufacturer,
-        Model
+        Manufacturer
 )
 SELECT
     Manufacturer as make,
