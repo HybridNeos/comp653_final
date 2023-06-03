@@ -1,0 +1,12 @@
+column,value,rank
+incident_severity,"Trivial Damage",0
+incident_severity,"Minor Damage",1
+incident_severity,"Major Damage",2
+incident_severity,"Total Loss",3
+insured_education_level,"High School",0
+insured_education_level,"Associate",1
+insured_education_level,"College",2
+insured_education_level,"Masters",3
+insured_education_level,"PhD",4
+insured_education_level,"JD",4
+insured_education_level,"MD",5
