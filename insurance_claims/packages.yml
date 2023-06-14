@@ -1,3 +1,5 @@
 packages:
   - package: "omnata-labs/dbt_ml_preprocessing"
     version: [">=1.0.2"]
+  - package: kristeligt-dagblad/dbt_ml
+    version: 0.6.0
