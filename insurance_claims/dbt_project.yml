@@ -33,3 +33,5 @@ models:
   insurance_claims:
     # Config indicated by + and applies to all files under models/example/
     +materialized: table
+    pre_processing:
+      +materialized: view
