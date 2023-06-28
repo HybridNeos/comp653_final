@@ -1,0 +1,4 @@
+SELECT
+  *
+FROM
+  ML.PRINCIPAL_COMPONENT_INFO(MODEL {{ ref('pca') }})

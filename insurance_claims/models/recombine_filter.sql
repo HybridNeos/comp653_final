@@ -30,7 +30,7 @@ SELECT
         WHEN ins.fraud_reported = 'Y'
         THEN 1
         ELSE 0
-    END as fraud_reported
+    END as label
 FROM
     {{ ref('insurance_claims') }} ins
     INNER JOIN {{ ref('ordinal_transform') }} ord
