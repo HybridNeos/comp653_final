@@ -24,7 +24,7 @@ SELECT
     tpd.non_violent_rate,
     tpd.deaths_per_100k,
     tpd.deaths_per_100mil_vehicle_miles,
-    tpd.avg_price,
+    tpd.avg_car_price,
     -- Target variable
     CASE
         WHEN ins.fraud_reported = 'Y'
