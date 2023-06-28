@@ -64,7 +64,7 @@ SELECT
     claims.auto_make,
     claims.auto_model,
     claims.auto_year,
-    COALESCE(m3.avg_price, m2.avg_price, m1.avg_price, (SELECT AVG(price) from {{ ref('car_prices_dataset') }})) as avg_price
+    COALESCE(m3.avg_price, m2.avg_price, m1.avg_price, (SELECT AVG(price) from {{ ref('car_prices_dataset') }})) as avg_car_price
     -- COALESCE(m3.avg_price, m2.avg_price, m1.avg_price, (SELECT avg_price from average_prices WHERE average_over = 'all_cars')) as avg_price
 FROM
     {{ ref('insurance_claims') }} claims
