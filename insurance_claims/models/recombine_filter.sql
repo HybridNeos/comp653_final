@@ -25,12 +25,13 @@ SELECT
     tpd.deaths_per_100k,
     tpd.deaths_per_100mil_vehicle_miles,
     tpd.avg_car_price,
-    -- Target variable
+    -- Target variable and train / test split column
     CASE
         WHEN ins.fraud_reported = 'Y'
         THEN 1
         ELSE 0
-    END as label
+    END as label,
+    ROUND(ABS(RAND()),1) AS split_field
 FROM
     {{ ref('insurance_claims') }} ins
     INNER JOIN {{ ref('ordinal_transform') }} ord

@@ -28,8 +28,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 
 vars:
-  "dbt_ml:audit_schema": "comp_653_models"
+  "dbt_ml:audit_schema": "comp653_models"
   "dbt_ml:audit_table": "ml_models"
+  train_percent: 0.8
+
 on-run-start:
   - '{% do adapter.create_schema(api.Relation.create(target.project, "audit")) %}'
   - "{{ dbt_ml.create_model_audit_table() }}"
@@ -47,4 +49,6 @@ models:
       post-hook: "{{ dbt_ml.model_audit() }}"
     +materialized: table
     feature_transformation:
+      +materialized: view
+    pre_processing:
       +materialized: view

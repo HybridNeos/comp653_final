@@ -3,14 +3,14 @@
         materialized="model",
         ml_config={
             "model_type": "LOGISTIC_REG",
-            "description": "something", 
+            "enable_global_explain": true,
             "early_stop": true,
             "data_split_method": "RANDOM",
             "data_split_eval_fraction": 0.2,
-            "l2_reg": 0.01,
+            "l2_reg": 0.1,
+            "auto_class_weights": true
         }
     )
 }}
---            "auto_class_weights": true,
 
-SELECT * EXCEPT(row_number) FROM {{ ref('recombine_filter') }}
+SELECT * FROM {{ ref('train_data') }}

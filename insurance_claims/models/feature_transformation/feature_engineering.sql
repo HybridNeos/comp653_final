@@ -13,6 +13,6 @@ SELECT
     capital_loss,
     total_claim_amount,
     (capital_gains + capital_loss) / total_claim_amount as claim_capital_percent
-    -- consider comparing property_damagew, bodily_injuries to injury_claim, property_claim
+    -- consider comparing property_damage, bodily_injuries to injury_claim, property_claim
 FROM
     {{ ref('insurance_claims') }}
