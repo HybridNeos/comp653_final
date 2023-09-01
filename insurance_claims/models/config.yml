@@ -1,0 +1,18 @@
+version: 2
+
+# sources:
+#   - name: best_employers
+#     database: methodical-aura-373904
+#     schema: best_employers
+#     tables: 
+#       - name: raw_data
+
+models:
+  - name: important_features
+    description: "Does two things"
+    config:
+      foo: bar
+      packages:
+        - "pandas==2.0.3"
+        - "numpy"
+        - "scikit-learn"
